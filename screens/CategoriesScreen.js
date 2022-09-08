@@ -4,13 +4,13 @@ import { CATEGORIES } from '../data/dummy-data'
 import CategoryGridTile from '../components/CategoryGridTile'
 
 
-const CategoriesScreen = ({ navigation, ...rest }) => {
+const CategoriesScreen = ({ navigation }) => {
 
-    console.log("rest", rest)
+
 
     const renderCategoryItem = (itemData) => {
         const pressHandler = () => {
-            navigation.navigate("MealsOverview");
+            navigation.navigate("MealsOverview", { categoryId: itemData.item.id });
         }
         return (
             <CategoryGridTile onPress={pressHandler} title={itemData.item.title} color={itemData.item.color} />
