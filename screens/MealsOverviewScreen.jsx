@@ -5,19 +5,29 @@ import React from 'react'
 import { MEALS } from '../data/dummy-data'
 import MealItem from '../components/MealItem'
 
+
 const MealsOverviewScreen = ({ route }) => {
 
     // const route = useRoute()
     const categoryId = route.params.categoryId
 
     const displayedMeals = MEALS.filter((mealItem) => {
+
         return mealItem.categoryIds.indexOf(categoryId) >= 0
     })
-    console.log("displayedMeals", displayedMeals)
-    console.log("categoryId", categoryId)
+
+
 
     const renderMealItem = (itemData) => {
-        return (<MealItem title={itemData.item.title} />)
+        const item = itemData.item
+        const mealItemProps = {
+            title: item.title,
+            imageUrl: item.imageUrl,
+            affordability: item.affordability,
+            complexity: item.complexity,
+            duration: item.duration
+        }
+        return (<MealItem {...mealItemProps} />)
     }
 
     return (
