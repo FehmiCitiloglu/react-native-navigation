@@ -5,7 +5,10 @@ import React from 'react'
 const MealItem = ({ title, imageUrl, duration, complexity, affordability }) => {
     return (
         <View style={styles.mealItem}>
-            <Pressable android_ripple={{ color: '#ccc' }} style={({ pressed }) => pressed ? styles.buttonPressed : null} >
+            <Pressable
+                android_ripple={{ color: '#ccc' }}
+                style={({ pressed }) => pressed ? styles.buttonPressed : null}
+            >
                 <View style={styles.innerContainer}>
                     <View>
                         <Image source={{ uri: imageUrl }} style={styles.image} />
